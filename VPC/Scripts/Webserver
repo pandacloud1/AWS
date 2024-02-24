@@ -1,0 +1,25 @@
+==============================================
+# Installing Apache in Ubuntu 20.04 (WebServer)
+==============================================
+
+#!/bin/bash
+sleep 60
+sudo su -
+apt update -y
+apt install apache2 -y
+service apache2 start
+echo "MYSERVER" > /var/www/html/index.html
+
+==============================================
+# Installing Apache in Amazon Linux 2 (WebServer)
+==============================================
+
+#!/bin/bash
+sleep 60 
+sudo su -
+yum update -y  
+yum install httpd -y
+service httpd start
+service httpd status
+chkconfig httpd on
+echo "MYSERVER" > /var/www/html/index.html
