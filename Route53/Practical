@@ -1,7 +1,6 @@
 #=======================
 # Creating Security Group, LoadBalancer & Autoscaling in one region (eg: N Virginia)
 #=======================  
-
 1. Create SG: Allow 22 & 80
 2. Create LB
    Create TG: Give name & create
@@ -11,12 +10,10 @@
    Attach to existing load balancer
    Group size: Desired2, Min2, Max2
    
-
-Follow the same steps as above
-Create SG, ALB & ASG in another region (eg: Mumbai)
+Follow the same steps as above to create SG, ALB & ASG in another region (eg: Mumbai)
 
 #=============================
-# Installation Script (LB1)
+# Installation Script (LoadBalancer-1)
 #=============================   
 #!/bin/bash
 # wait 60sec for EC2 initialization
@@ -39,7 +36,7 @@ cp * -R /var/www/html/
 
 
 #=============================
-# Installation Script (LB2)
+# Installation Script (LoadBalancer-2)
 #=============================   
 #!/bin/bash
 # wait 60sec for EC2 initialization
@@ -86,4 +83,4 @@ Failover type: Primary
 
 Note: Follow the same steps as above for Load-Balancer-2
       The only change will be Failover type: Secondary
-	  We can follow the same steps for other routing policies types.
+      We can follow the same steps for other routing policies types.
