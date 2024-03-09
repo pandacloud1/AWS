@@ -1,0 +1,12 @@
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-07761f3ae34c4478d  # Amazon Linux 2 AMI
+      SecurityGroupIds:
+        - sg-09770e227d1b9d77f        # Your security group ID
+      KeyName: My-key                 # Your key pair name
+      Tags:
+        - Key: Name
+          Value: MyServer
