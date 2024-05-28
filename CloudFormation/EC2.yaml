@@ -1,3 +1,4 @@
+# SELECT REGION: N VIRGINIA
 Resources:
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
