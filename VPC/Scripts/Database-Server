@@ -18,44 +18,63 @@ sudo ssh –i ‘Keyname.pem’ ubuntu@<database-Private-IP>
 # (Now we will enter inside your Database Server)
 
 ==============================================
-# Installing MYSQL in Amazon Linux 2023
-==============================================
-
-#!/bin/bash
-sleep 60
-sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
-sudo yum install mysql80-community-release-el9-1.noarch.rpm -y
-yum repolist enabled | grep "mysql.*-community.*"
-sudo yum install mysql-community-server -y
-sudo systemctl start mysqld
-mysql --version
-
--------------
-# Connecting Database Server from Bastion Server
--------------
-# Login to your Bastion Server
-# (Copy the pem key in Bastion Server '/home/ec2-user' location)
-sudo ssh –i ‘Keyname.pem’ ec2-user@<database-Private-IP>
-# (Now we will enter inside your Database Server)
-
-==============================================
 # Installing MYSQL in Amazon Linux 2
 ==============================================
+# Ref: https://stackoverflow.com/questions/70993613/unable-to-install-mysql-on-centos7
 
-#!/bin/bash
-sleep 60
-sudo amazon-linux-extras install epel -ysudo yum install mysql80-community-release-el9-1.noarch.rpm -y
-sudo yum install -y https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
-sudo yum install -y mysql-community-server 
-systemctl active mysqld 
-systemctl start mysqld 
-systemctl status mysqld 
-cat /var/log/mysql.log | grep "A temporary password" 
-sudo mysql_secure_installation
+sudo su -
+yum update -y
+rpm -Uvh https://repo.mysql.com/mysql80-community-release-el7-3.noarch.rpm
+sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/mysql-community.repo
+# yum --enablerepo=mysql80-community install mysql-community-server -y
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+yum --enablerepo=mysql80-community install mysql-community-server -y
+systemctl start mysqld
+systemctl enable mysqld
+systemctl start mysqld
+grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
+mysql_secure_installation
 
-# Set root password
-mysql -u root -p 
-mysql --version
+# Current Password
+9GndiE23q1))
+
+# New Password
+Admin@12345
+
+# Create password like 'Admin@12345', shorts passwords won't be accepted
+# Hit enter for any other prompts
+
+# Login to the database using below command
+mysql -u root -p
+
+==============================================
+# Installing MYSQL in Amazon Linux 2023
+==============================================
+# Ref: https://muleif.medium.com/how-to-install-mysql-on-amazon-linux-2023-5d39afa5bf11
+
+sudo su -
+sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+sudo dnf install mysql80-community-release-el9-1.noarch.rpm -y
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+sudo dnf install mysql-community-server -y
+sudo systemctl start mysqld
+systemctl enable mysqld
+sudo systemctl enable mysqld
+sudo grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
+
+mysql_secure_installation
+
+# Current Password
+UEjbqo4o=gRK
+
+# New Password
+Admin@12345
+
+# Create password like 'Admin@12345', shorts passwords won't be accepted
+# Hit enter for any other prompts
+
+# Login to the database using below command
+mysql -u root -p
 
 -------------
 # Connecting Database Server from Bastion Server
