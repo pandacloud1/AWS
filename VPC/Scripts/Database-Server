@@ -45,8 +45,8 @@ sudo ssh –i ‘Keyname.pem’ ec2-user@<database-Private-IP>
 #!/bin/bash
 sleep 60
 sudo amazon-linux-extras install epel -ysudo yum install mysql80-community-release-el9-1.noarch.rpm -y
-sudo yum install https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
-sudo yum install mysql-community-server 
+sudo yum install -y https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+sudo yum install -y mysql-community-server 
 systemctl active mysqld 
 systemctl start mysqld 
 systemctl status mysqld 
