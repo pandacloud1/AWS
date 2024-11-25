@@ -8,7 +8,7 @@
      Set the advanced health checks to minimum
      Create
 3. Create ASG
-   Create launch template & add below script in User data
+   Create launch template & add below script in "User data"
    Network: AZ: Choose AZ-1a & AZ-1b
    Attach to existing load balancer
    Group size: Desired2, Min2, Max2
