@@ -43,7 +43,7 @@ sudo yum install git httpd -y
 service httpd start
 chkconfig httpd on
 
-git clone https://github.com/pandacloud1/webapp2.git && cd webapp2
+git clone https://github.com/pandacloud1/webapp1-india.git && cd webapp1-india
 cp * -R /var/www/html/
 
 #=============================
