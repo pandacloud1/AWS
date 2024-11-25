@@ -3,7 +3,10 @@
 #=======================  
 1. Create SG: Allow 22 & 80
 2. Create LB
-   Create TG: Give name & create
+   Create TG: 
+     Give name 
+     Set the advanced health checks to minimum
+     Create
 3. Create ASG
    Create launch template
    Network: AZ: Choose AZ-1a & AZ-1b
