@@ -5,7 +5,7 @@
 2. Create LB
    Create TG: 
      Give name 
-     Set the advanced health checks to minimum
+     Set the "advanced health checks" to "minimum"
      Create
 3. Create ASG
    Create launch template & add below script in "User data"
