@@ -1,19 +1,21 @@
 #=======================
-# Creating Security Group, LoadBalancer & Autoscaling in one region (eg: N Virginia)
+# Creating Security Group, LoadBalancer & Autoscaling 
 #=======================  
+Create the below in one region (eg: N Virginia)
 1. Create SG: Allow 22 & 80
-2. Create LB
-   Create TG: 
-     Give name 
-     Set the "advanced health checks" to "minimum"
-     Create
-3. Create ASG
-   Create launch template & add below script in "User data"
-   Network: AZ: Choose AZ-1a & AZ-1b
-   Attach to existing load balancer
-   Group size: Desired2, Min2, Max2
+2. Create TG: 
+     - Give name 
+     - Set the "advanced health checks" to "minimum"
+3. Create ALB
+4. Create Launch Template
+     - Select Amazon Linux 2 OS
+     - Add below script in "User data"
+5. Create ASG
+     - Network: AZ: Choose AZ-1a & AZ-1b
+     - Attach to existing load balancer
+     - Group size: Desired2, Min2, Max2
    
-Follow the same steps as above to create SG, ALB & ASG in another region (eg: Mumbai)
+Follow the same steps as above & create SG, TG, ALB & ASG in another region (eg: Mumbai)
 
 #=============================
 # Installation Script (LoadBalancer-1)
