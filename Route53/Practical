@@ -21,22 +21,13 @@ Follow the same steps as above & create SG, TG, ALB & ASG in another region (eg:
 # Installation Script (LoadBalancer-1)
 #=============================   
 #!/bin/bash
-# wait 60sec for EC2 initialization
 sleep 60
 
-# Become root user & update OS
-sudo su -
-yum update -y
-
-# Install 'Git' & 'Apache'
-yum install git httpd -y
+sudo yum update -y
+sudo yum install git httpd -y
 service httpd start
 chkconfig httpd on
-
-# Copy webapp files from Github
 git clone https://github.com/pandacloud1/webapp1.git && cd webapp1
-
-# Copy files in '/var/www/html' location
 cp * -R /var/www/html/
 
 
@@ -44,22 +35,15 @@ cp * -R /var/www/html/
 # Installation Script (LoadBalancer-2)
 #=============================   
 #!/bin/bash
-# wait 60sec for EC2 initialization
+
 sleep 60
 
-# Become root user & update OS
-sudo su -
-yum update -y
-
-# Install 'Git' & 'Apache'
-yum install git httpd -y
+sudo yum update -y
+sudo yum install git httpd -y
 service httpd start
 chkconfig httpd on
 
-# Copy webapp files from Github
 git clone https://github.com/pandacloud1/webapp2.git && cd webapp2
-
-# Copy files in '/var/www/html' location
 cp * -R /var/www/html/
 
 #=============================
