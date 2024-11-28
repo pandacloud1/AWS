@@ -8,6 +8,29 @@ sleep30
 sudo yum update -y
 sudo yum install mysql -y
 
+# --------------------------------------
 # Command to access RDS through Bastion
+# --------------------------------------
 mysql -h <RDS-endpoint> -u admin –p (Enter)
 # (Enter your password)
+
+# ======================================
+# INSTALLING MYSQL IN AMAZON LINUX 2023
+# ======================================
+# REF: https://dev.to/aws-builders/installing-mysql-on-amazon-linux-2023-1512
+
+#!/bin/bash
+sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+sudo dnf install mysql80-community-release-el9-1.noarch.rpm -y
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+sudo dnf install mysql-community-client -y
+mysql --version
+
+# ======================================
+# INSTALLING MYSQL IN UBUNTU 22.04
+# ======================================
+#!/bin/bash
+sudo apt update -y
+sudo apt install mysql-server -y
+sudo systemctl start mysql.service
+mysql --version
