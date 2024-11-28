@@ -1,0 +1,13 @@
+# ======================================
+# INSTALLING MYSQL in AMAZON LINUX 2
+# ======================================
+#!/bin/bash
+sleep30
+
+# Install MySQL
+sudo yum update -y
+sudo yum install mysql -y
+
+# Command to access RDS through Bastion
+mysql -h <RDS-endpoint> -u admin –p (Enter)
+# (Enter your password)
