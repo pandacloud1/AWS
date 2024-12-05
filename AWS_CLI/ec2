@@ -1,0 +1,16 @@
+# =====================================
+# AWS CLI COMMANDS
+# =====================================
+
+# -------------------
+# EC2 COMMANDS
+# -------------------
+# Create instance
+aws ec2 run-instances --image-id <img-id> --count <num> --instance-type <type> --key-name <Key-name> --security-groups <SG-name>
+# <img id>: ami-0166fe664262f664c (Amazon_Linux-2)
+
+# Describe instances
+aws ec2 describe-instances --filters Name=instance-state-name,Values=running --output table
+
+# Terminate instances
+aws ec2 terminate-instances --instance-ids <InstanceId>
