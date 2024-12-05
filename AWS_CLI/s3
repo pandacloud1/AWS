@@ -1,0 +1,13 @@
+# -------------------
+# S3 CLI COMMANDS
+# -------------------
+# REF: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html
+
+# Create S3 bucket
+aws s3api create-bucket --bucket <bucket-name> --region us-east-1
+
+# Empty S3 bucket
+aws s3 rm s3://<bucket-name> --recursive
+
+# Delete S3 bucket
+aws s3api delete-bucket --bucket <bucket-name> --region us-east-1
