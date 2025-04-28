@@ -1,0 +1,16 @@
+-----------------------------------------
+# HOW TO ATTACH ADDITIONAL EBS WITH EC2?
+-----------------------------------------
+# STEP1: 
+  Create volume
+
+# STEP2: 
+  Stop the original instance & attach the volume & run below commands
+
+# COMMANDS
+lsblk                                                                    # check the list of block storages and their mount points, note the name of new volume (eg. "xvdf1")
+sudo mkdir /disk2                                                        # create directory to mount the original volume
+sudo mkfs -t ext4 /dev/xvdf1                                             # to create a filesystem (it is used to organize file structure for external devices)
+sudo mount /dev/xvdf1 /disk2                                             # create mount point in temporary volume 
+                                                                         # (Here 'xvdf1' is an name of volume, replace it with actual volume name xvdb1, xvdc1, etc from lsblk command)
+sudo umount /disk2                                                       # unmount original volume (optional
