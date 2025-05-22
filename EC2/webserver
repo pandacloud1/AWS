@@ -6,7 +6,7 @@ sleep 30
 
 sudo yum update -y
 sudo yum install git httpd -y
-service httpd start
-chkconfig httpd on
+sudo service httpd start
+sudo chkconfig httpd on
 git clone https://github.com/pandacloud1/webapp1.git && cd webapp1
-cp * -R /var/www/html/
+sudo cp * -R /var/www/html/
