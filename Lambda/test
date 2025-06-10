@@ -1,4 +1,5 @@
 # Test event JSON
 # Replace the <instance-ID> with your EC2 instance id
+# Change Configuration --> General configuration --> Edit --> Change timeout settings to 2 mins
 
 {"instanceId": "<instance-ID>"}
