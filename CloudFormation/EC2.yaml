@@ -1,4 +1,6 @@
 # SELECT REGION: N VIRGINIA
+# Below code will create Security group & EC2 instance
+
 Resources:
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -18,10 +20,10 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
-      ImageId: ami-0d94353f7bad10668  # Amazon Linux 2 AMI
+      ImageId: ami-0dc3a08bd93f84a35  # Amazon Linux 2 AMI
       SecurityGroupIds:
         - !Ref MySecurityGroup
-      KeyName: My_key                 # Your key pair name
+      KeyName: Linux-key              # Your key pair name
       Tags:
         - Key: Name
           Value: MyServer
