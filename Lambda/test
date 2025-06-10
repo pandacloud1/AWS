@@ -1,0 +1,4 @@
+# Test event JSON
+# Replace the <instance-ID> with your EC2 instance id
+
+{"instanceId": "<instance-ID>"}
