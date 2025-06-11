@@ -1,0 +1,20 @@
+---------------------------------------------
+# Create EC2 instance with Amazon Linux 2023
+---------------------------------------------
+
+# Install stress
+sudo dnf install stress-ng -y
+
+# Install crontab
+sudo dnf install cronie
+sudo systemctl enable crond
+sudo systemctl start crond
+
+# Add metrics.sh to crontab
+crontab -e
+* * * * * /home/ec2-user/metrics.sh
+
+# Run the stres utility to generate load
+stress-ng --vm 15 --vm-bytes 80% --vm-method all --verify -t 60m -v
+
+# Create alarm & add SNS notifications
