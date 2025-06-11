@@ -2,6 +2,7 @@
 # Make the metrics.sh file executable by running below command
 # sudo chmod +x metrics.sh
 # ----------------------------
+
 #!/bin/bash
 
 # Create a token for IMDSv2 that expires after 60 seconds
