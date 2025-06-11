@@ -8,7 +8,7 @@ Create an IAM role that uses the policy document
 aws iam create-role --role-name "CloudWatch-Role" --assume-role-policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":"ec2.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
 
 Attach the policy to the role (update policy ARN)
-aws iam attach-role-policy --role-name "CloudWatch-Role" --policy-arn ""
+aws iam attach-role-policy --role-name "CloudWatch-Role" --policy-arn "<Policy-ARN>"
 
 Create an instance profile
 aws iam create-instance-profile --instance-profile-name "CloudWatch-Instance-Profile"
@@ -24,7 +24,7 @@ Add a rule for SSH inbound to the security group
 aws ec2 authorize-security-group-ingress --group-name CustomMetricLab --protocol tcp --port 22 --cidr 0.0.0.0/0
 
 Launch instance in US-EAST-1A
-aws ec2 run-instances --image-id --instance-type t2.micro --placement AvailabilityZone=us-east-1a --security-group-ids --iam-instance-profile Name="CloudWatch-Instance-Profile"
+aws ec2 run-instances --image-id <Image-ID> --instance-type t2.micro --placement AvailabilityZone=us-east-1a --security-group-ids <SG-id> --iam-instance-profile Name="CloudWatch-Instance-Profile"
 
 Run the remaining commands from the EC2 instance
 Install stress
