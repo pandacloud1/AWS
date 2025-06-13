@@ -6,7 +6,7 @@
 sudo dnf install stress-ng -y
 
 # Install crontab
-sudo dnf install cronie
+sudo dnf install cronie -y
 sudo systemctl enable crond
 sudo systemctl start crond
 
