@@ -14,3 +14,12 @@ aws ec2 describe-instances --filters Name=instance-state-name,Values=running --o
 
 # Terminate instances
 aws ec2 terminate-instances --instance-ids <InstanceId>
+
+# --------------------
+# EXAMPLES:
+# --------------------
+# CREATE EC2 USING CLI
+aws ec2 run-instances --image-id ami-0f3f13f145e66a0a3 --instance-type t2.micro --key-name Linux-key --security-groups Linux-SG
+
+# TERMINATE EC2 USING CLI
+aws ec2 terminate-instances --instance-id <instance-id>
