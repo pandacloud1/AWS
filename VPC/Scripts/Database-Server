@@ -65,12 +65,12 @@ sudo grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
 mysql_secure_installation
 
 # Current Password
-UEjbqo4o=gRK
+<Current password>
 
 # New Password
-Admin@12345
+<Enter new password>
 
-# Create password like 'Admin@12345', shorts passwords won't be accepted
+# Create password like 'Example@12345', shorts passwords won't be accepted
 # Hit enter for any other prompts
 
 # Login to the database using below command
